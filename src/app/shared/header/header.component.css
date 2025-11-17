@@ -1,0 +1,20 @@
+/* Louvado seja o Senhor */
+
+nav{
+    display: flex;
+    background-color: var(--tertiary-color);
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.ph-user{
+    position: absolute;
+    left: 1%;
+}
+
+.ph-sign-out{
+    position: absolute;
+    right: 1%;
+}

@@ -1,3 +1,5 @@
+// Louvado seja o Senhor
+
 import { Component } from '@angular/core';
 
 @Component({
