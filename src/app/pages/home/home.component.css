@@ -1,5 +1,11 @@
 /* Louvado seja o Senhor */
 
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
 .card-section{
     display: flex;
     justify-content: space-evenly;

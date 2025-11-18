@@ -3,9 +3,10 @@
 nav{
     display: flex;
     background-color: var(--tertiary-color);
+    color: var(--primary-color);
     justify-content: center;
     align-items: center;
-    height: 3rem;
+    height: 4.5rem;
     font-size: 2rem;
 }
 
@@ -17,4 +18,15 @@ nav{
 .ph-sign-out{
     position: absolute;
     right: 1%;
+}
+
+ul{
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+ul a{
+    text-decoration: none;
+    color: var(--primary-color);
 }
