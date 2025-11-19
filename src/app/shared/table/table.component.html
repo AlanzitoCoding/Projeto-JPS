@@ -1,6 +1,21 @@
 <!-- Louvado seja o Senhor -->
 
-<section>
+<section [style.width]="width">
+    <div class="actions-div">
+        <button>
+            <ng-content select="[btn-text]"/>
+        </button>
+
+        <div class="filters-div">
+            <label for="search">
+                <input type="text" name="search" id="search">
+                <i class="ph ph-magnifying-glass"></i>
+            </label>
+            
+            <i class="ph ph-funnel"></i>
+        </div>
+    </div>
+
     <table>
         <thead>
             <ng-content select="[table-header]"/>

@@ -1,11 +1,11 @@
 // Louvado seja o Senhor
 
 export interface Produto{
-    id : string;
-    nome : string;
+    id : string,
+    nome : string,
+    valorUnitario : number,
+    valorKg : number | 0,
     categoria : string;
-    valorUnitario : number;
-    valorKg : number | 0;
 }
 
 export interface Produtos extends Array<Produto>{}

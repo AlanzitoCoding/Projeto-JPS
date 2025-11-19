@@ -1,7 +1,9 @@
 /* Louvado seja o Senhor */
 
 section{
-    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
 }
 
 table{
@@ -9,11 +11,24 @@ table{
     background-color: var(--highlight-color);
 }
 
-thead{
-    padding: 10rem;
-}
-
 tbody{
     text-align: center;
     background-color: var(--primary-color);
+}
+
+.prod-table-div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.actions-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filters-div{
+    display: flex;
+    gap: 2rem;
 }

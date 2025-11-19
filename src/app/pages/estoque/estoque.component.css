@@ -12,13 +12,6 @@ main{
     align-items: center;
 }
 
-.actions-div{
+.table{
     width: 90%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.filters-div{
-    display: flex;
-    gap: 2rem;
 }

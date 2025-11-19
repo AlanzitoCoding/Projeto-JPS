@@ -4,35 +4,26 @@
     <app-header/>
 
     <main>
-        <div class="actions-div">
-            <a href="">Adicionar Produto</a>
+        <div class="prod-table-div">        
+            <app-table class="table" width="90vw">
+                <p btn-text>Adicionar Produto</p>
 
-            <div class="filters-div">
-                <label for="search">
-                    <input type="text" name="search" id="search">
-                    <i class="ph ph-magnifying-glass"></i>
-                </label>
-
-                <i class="ph ph-funnel"></i>
-            </div>
+                <tr table-header>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Valor Unitário</th>
+                    <th>Valor do Kg</th>
+                    <th>Categoria</th>
+                </tr>
+                
+                <tr table-data>
+                    <td>ID</td>
+                    <td>Nome</td>
+                    <td>Valor Unitário</td>
+                    <td>Valor do Kg</td>
+                    <td>Categoria</td>
+                </tr>
+            </app-table>
         </div>
-        
-        <app-table>
-            <tr table-header>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Valor Unitário</th>
-                <th>Valor do Kg</th>
-                <th>Categoria</th>
-            </tr>
-            
-            <tr table-data>
-                <td>ID</td>
-                <td>Nome</td>
-                <td>Valor Unitário</td>
-                <td>Valor do Kg</td>
-                <td>Categoria</td>
-            </tr>
-        </app-table>
     </main>
 </body>
