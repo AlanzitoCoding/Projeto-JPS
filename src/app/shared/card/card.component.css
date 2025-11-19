@@ -8,7 +8,7 @@ a{
     height: 10rem;
     border: 2px solid var(--tertiary-color);
     border-radius: 8px;
-    background-color: var(--card-bg-color);
+    background-color: var(--highlight-color);
     text-decoration: none;
     color: var(--secondary-color);
 }

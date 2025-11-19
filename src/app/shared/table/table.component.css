@@ -1,0 +1,19 @@
+/* Louvado seja o Senhor */
+
+section{
+    width: 90vw;
+}
+
+table{
+    width: 100%;
+    background-color: var(--highlight-color);
+}
+
+thead{
+    padding: 10rem;
+}
+
+tbody{
+    text-align: center;
+    background-color: var(--primary-color);
+}

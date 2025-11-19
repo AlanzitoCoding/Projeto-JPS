@@ -2,11 +2,11 @@
 
 import { Component } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
-import { ProdutosTableComponent } from "./produtos-table/produtos-table.component";
+import { TableComponent } from "../../shared/table/table.component";
 
 @Component({
   selector: 'app-estoque',
-  imports: [HeaderComponent, ProdutosTableComponent],
+  imports: [HeaderComponent, TableComponent],
   templateUrl: './estoque.component.html',
   styleUrl: './estoque.component.css'
 })
