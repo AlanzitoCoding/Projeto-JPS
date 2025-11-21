@@ -1,1 +1,10 @@
 /* Louvado seja o Senhor */
+
+.tables-section{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* tr th, tr td{
+    padding: 4rem;
+} */

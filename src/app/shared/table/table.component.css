@@ -32,3 +32,7 @@ tbody{
     display: flex;
     gap: 2rem;
 }
+
+:host ::ng-deep tr th, :host ::ng-deep tr td{
+    padding: 0.5rem 0;
+}
