@@ -10,4 +10,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TableComponent {
  @Input() width : string = "";
+ @Input() clickFunc : string = "";
 }
