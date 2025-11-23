@@ -23,7 +23,7 @@
         </div>
     </main>
 
-    <app-modal [(isOpen)]="isModalOpen" class="modal" width="40vw" height="40vh">
+    <app-modal [(isOpen)]="isModalOpen" class="modal" width="40vw" height="50vh">
         <h1 modal-title>Adicionar Produto</h1>
         
         <i class="ph ph-package icon" modal-icon></i>
@@ -50,6 +50,17 @@
                 [required]="true"
                 ngModel>
                     <i class="ph ph-coin" label-icon></i>
+                </app-input>
+
+                <app-input 
+                inputType="string" 
+                inputID="categoriaProduto"
+                name="categoriaProduto" 
+                inputName="categoriaProduto" 
+                inputPlaceholder="Categoria do produto"
+                [required]="true"
+                ngModel>
+                    <i class="ph ph-article" label-icon></i>
                 </app-input>
 
                 <div class="button-div">
