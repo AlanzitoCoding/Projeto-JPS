@@ -33,6 +33,10 @@ tbody{
     gap: 2rem;
 }
 
+:host ::ng-deep tr th{
+    color: var(--primary-color);
+}
+
 :host ::ng-deep tr th, :host ::ng-deep tr td{
     padding: 0.5rem 0;
 }

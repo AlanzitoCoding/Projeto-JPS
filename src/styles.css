@@ -6,7 +6,9 @@
     --primary-color: #fff;
     --secondary-color: #000;
     --tertiary-color: rgb(70, 200, 70);
-    --highlight-color: #F1F3E0;
+    --highlight-color: #73AF6F;
+    
+    --card-bg-color: #F1F3E0;
 }
 
 *{

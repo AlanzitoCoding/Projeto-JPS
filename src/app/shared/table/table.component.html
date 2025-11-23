@@ -2,9 +2,9 @@
 
 <section [style.width]="width">
     <div class="actions-div">
-        <button (click)="clickFunc">
+        <app-button [action]="clickFunc">
             <ng-content select="[btn-text]"/>
-        </button>
+        </app-button>
 
         <div class="filters-div">
             <label for="search">

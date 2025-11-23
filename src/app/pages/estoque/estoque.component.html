@@ -5,25 +5,59 @@
 
     <main>
         <div class="prod-table-div">        
-            <app-table class="table" width="90vw">
+            <app-table class="table" width="90vw" [clickFunc]="openModal">
                 <p btn-text>Adicionar Produto</p>
 
                 <tr table-header>
-                    <th>ID</th>
                     <th>Nome</th>
-                    <th>Valor Unitário</th>
-                    <th>Valor do Kg</th>
+                    <th>Valor Unitário ou Kg</th>
                     <th>Categoria</th>
                 </tr>
                 
                 <tr table-data>
-                    <td>ID</td>
                     <td>Nome</td>
                     <td>Valor Unitário</td>
-                    <td>Valor do Kg</td>
                     <td>Categoria</td>
                 </tr>
             </app-table>
         </div>
     </main>
+
+    <app-modal [(isOpen)]="isModalOpen" class="modal" width="40vw" height="40vh">
+        <h1 modal-title>Adicionar Produto</h1>
+        
+        <i class="ph ph-package icon" modal-icon></i>
+
+        <form #form="ngForm" (ngSubmit)="form.valid && addProduto(form)" modal-form>
+            <div class="input-div">
+                <app-input 
+                inputType="text" 
+                inputID="nomeProduto"
+                name="nomeProduto" 
+                inputName="nomeProduto" 
+                inputPlaceholder="Nome do produto"
+                [required]="true"
+                ngModel>
+                    <i class="ph ph-scan" label-icon></i>
+                </app-input>
+            
+                <app-input 
+                inputType="number" 
+                inputID="valorProduto"
+                name="valorProduto" 
+                inputName="valorProduto" 
+                inputPlaceholder="Valor do produto (unidade ou kg)"
+                [required]="true"
+                ngModel>
+                    <i class="ph ph-coin" label-icon></i>
+                </app-input>
+
+                <div class="button-div">
+                    <app-button type="submit">
+                        Adicionar novo produto
+                    </app-button>
+                </div>
+            </div>
+        </form>
+    </app-modal>
 </body>

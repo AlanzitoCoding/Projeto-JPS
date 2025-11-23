@@ -3,8 +3,7 @@
 export interface Produto{
     id : string,
     nome : string,
-    valorUnitario : number,
-    valorKg : number | 0,
+    valor : number,
     categoria : string;
 }
 
