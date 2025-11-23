@@ -1,5 +1,26 @@
 <!-- Louvado seja o Senhor -->
 
-<app-modal [(isOpen)]="isRegistroDevedoresOpen">
+<app-modal [(isOpen)]="isRegistroDevedoresOpen" width="55vw">
+    <h1 modal-title>Registro dos Devedores</h1>
+    <i class="ph ph-money-wavy icon" modal-icon></i>
 
+    <section class="table-section" modal-content>
+        <app-table width="40vw" btnDisplay="none">
+            <tr table-header>
+                <th>Nome do Devedor</th>
+                <th>Valor da Dívida</th>
+                <th>Ações</th>
+            </tr>
+
+            <tr table-data>
+                <td>asd</td>
+                <td>132</td>
+                <td>
+                    <app-button>
+                        Acessar registro do devedor
+                    </app-button>
+                </td>
+            </tr>
+        </app-table>
+    </section>
 </app-modal>

@@ -1,0 +1,78 @@
+<!-- Louvado seja o Senhor -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-header/>
+
+    <main>
+        <section class="info-section">
+            <div class="info-data-div">
+                <h1>Nome: {{ nomeDevedor }}</h1>
+                
+                <div class="valor-div">
+                    <h2>Valor da Dívida: R$ {{ divida }}</h2>
+                    <app-button [action]="openModal">
+                        <p>Pagar dívida</p>
+                    </app-button>
+                </div>
+            </div>
+
+            <div class="info-tables-div">
+                <app-table width="40vw" btnDisplay="none">
+                    <tr table-header>
+                        <th>Valor da Dívida</th>
+                        <th>Data da Dívida</th>
+                    </tr>
+
+                    <tr table-data>
+                        <td>304</td>
+                        <td>12/12/20</td>
+                    </tr>
+                </app-table>
+                
+                <app-table width="40vw" btnDisplay="none">
+                     <tr table-header>
+                        <th>Valor do Pagamento</th>
+                        <th>Data do Pagamento</th>
+                    </tr>
+
+                    <tr table-data>
+                        <td>123</td>
+                        <td>20/12/20</td>
+                    </tr>
+                </app-table>
+            </div>
+        </section>
+
+        <section class="devedores-table-section">
+            <h2>Lista Geral de Devedores</h2>
+
+            <app-table width="90vw" btnDisplay="none">
+                <tr table-header>
+                    <th>Nome do Devedor</th>
+                    <th>Valor da Dívida</th>
+                    <th>Ações</th>
+                </tr>
+                
+                <tr table-data>
+                    <td>Johan</td>
+                    <td>1231</td>
+                    <td>
+                        <app-button>
+                            Carregar informações do devedor
+                        </app-button>
+                    </td>
+                </tr>
+            </app-table>
+        </section>
+    </main>
+
+    <app-modal-pagamento [(isPagamentoOpen)]="isPagamentoModalOpen" />
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- Louvado seja o Senhor -->
+
+<app-modal [(isOpen)]="isPagamentoOpen" width="40vw" height="40vh">
+    <h1 modal-title>Pagar Dívida</h1>
+    <i class="ph ph-hand-coins icon" modal-icon></i>
+
+    <form #form="ngForm" (ngSubmit)="form.valid && realizarPagamento(form)" modal-content>
+        <app-input
+        inputType="number" 
+        inputID="valorPagamento"
+        name="valorPagamento" 
+        inputName="valorPagamento" 
+        inputPlaceholder="Valor a ser pago"
+        [required]="true"
+        ngModel>
+            <i class="ph ph-money" label-icon></i>
+        </app-input>
+
+        <div class="button-div">
+            <app-button type="submit">
+                Confirmar Registro
+            </app-button>
+        </div>
+    </form>
+</app-modal>

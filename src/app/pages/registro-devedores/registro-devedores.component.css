@@ -1,0 +1,40 @@
+/* Louvado seja o Senhor */
+
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.info-section{
+    display: flex;
+    flex-direction: column;
+    padding: 0 5rem;
+}
+
+.info-data-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.valor-div{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1.5rem;
+}
+
+.info-tables-div{
+    display: flex;
+    justify-content: space-between;
+    padding: 5rem 0;
+}
+
+.devedores-table-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+}
