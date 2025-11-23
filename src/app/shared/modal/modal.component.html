@@ -1,0 +1,15 @@
+<!-- Louvado seja o Senhor -->
+
+<dialog #modal [style.width]="width" [style.height]="height">
+    <header>
+        <div>
+            <ng-content select="[modal-title]"/>
+            <ng-content select="[modal-icon]"/>
+        </div>
+
+        <i class="ph ph-x" (click)="closeModal()"></i>
+    </header>
+    <main>
+        <ng-content select="[modal-form]"/>
+    </main>
+</dialog>

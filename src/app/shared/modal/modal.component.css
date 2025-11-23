@@ -1,0 +1,43 @@
+/* Louvado seja o Senhor */
+
+dialog::backdrop{
+    background: var(--secondary-color);
+    opacity: 0.55;
+}
+
+dialog{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70rem;
+    height: 70rem;
+    border-radius: 10px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+}
+
+header div{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+
+.ph-x{
+    position: absolute;
+    right: 2.5%;
+    cursor: pointer;
+}
+
+:host ::ng-deep .icon, .ph-x{
+    font-size: 1.5rem;
+}
