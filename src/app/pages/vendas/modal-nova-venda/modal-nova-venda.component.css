@@ -1,0 +1,25 @@
+/* Louvado seja o Senhor */
+
+form{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-section{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.table-section{
+    display: flex;
+    justify-content: center;
+}
+
+.button-section{
+    display: flex;
+    justify-content: flex-end;
+}

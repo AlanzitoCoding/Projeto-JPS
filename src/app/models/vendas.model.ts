@@ -5,26 +5,24 @@ export interface RegistroVenda{
     dataRegistro : Date,
     valor : number,
     nomeComprador : string,
-    tipoCompra : TipoCompra,
-    idListaProdutos : number
+    tipoCompra : TipoCompra
 }
 
 export interface RegistroDevedores{
     id : number,
-    dataRegistro : Date,
-    valor : number,
-    nomeDevedor : string,
-    idCliente : number
-    idListaProdutos : number
+    idCliente : number,
+    idRegistroVenda : number
 }
 
 export interface listaProdutosComprados{
-    id : number
+    id : number,
+    idRegistroVenda : number
 }
 
 export interface produtosComprados{
     id : number,
     idProduto : number,
+    quantidadeComprada : number,
     idLista : number
 }
 

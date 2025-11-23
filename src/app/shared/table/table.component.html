@@ -2,7 +2,7 @@
 
 <section [style.width]="width">
     <div class="actions-div">
-        <app-button [action]="clickFunc">
+        <app-button [action]="clickFunc" [style.display]="btnDisplay">
             <ng-content select="[btn-text]"/>
         </app-button>
 

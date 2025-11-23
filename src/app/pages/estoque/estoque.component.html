@@ -1,5 +1,12 @@
 <!-- Louvado seja o Senhor -->
 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 <body>
     <app-header/>
 
@@ -28,7 +35,7 @@
         
         <i class="ph ph-package icon" modal-icon></i>
 
-        <form #form="ngForm" (ngSubmit)="form.valid && addProduto(form)" modal-form>
+        <form #form="ngForm" (ngSubmit)="form.valid && addProduto(form)" modal-content>
             <div class="input-div">
                 <app-input 
                 inputType="text" 
@@ -72,3 +79,4 @@
         </form>
     </app-modal>
 </body>
+</html>

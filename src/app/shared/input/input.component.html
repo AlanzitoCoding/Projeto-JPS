@@ -3,13 +3,14 @@
 <label [for]="inputID">
     <ng-content select="[label-icon]"/>
     <input 
-        [type]="inputType"
-        [name]="inputName"
-        [id]="inputID"
-        [placeholder]="inputPlaceholder"
-        [required]="required"
-        [ngModel]="value"
-        (ngModelChange)="onChange($event)"
-        (blur)="onTouched()"
+    [type]="inputType"
+    [name]="inputName"
+    [id]="inputID"
+    [placeholder]="inputPlaceholder"
+    [required]="required"
+    [ngModel]="value"
+    (ngModelChange)="onChange($event)"
+    (blur)="onTouched()"
     >
+    <ng-content select="[optional-icon]"/>
 </label>

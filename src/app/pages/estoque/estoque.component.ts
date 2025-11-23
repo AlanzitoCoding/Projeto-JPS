@@ -7,7 +7,6 @@ import { TableComponent } from "../../shared/table/table.component";
 import { ModalComponent } from "../../shared/modal/modal.component";
 import { InputComponent } from "../../shared/input/input.component";
 import { ButtonComponent } from "../../shared/button/button.component";
-import { TipoCompra } from '../../models/vendas.model';
 
 @Component({
   selector: 'app-estoque',
@@ -17,13 +16,6 @@ import { TipoCompra } from '../../models/vendas.model';
 })
 export class EstoqueComponent {
   isModalOpen = signal(false);
-  tipoCompraEnum = TipoCompra;
-
-  produto = {
-    nome : '',
-    valorUnitario : '',
-    valorKg : ''
-  }
 
   openModal = () => {
     this.isModalOpen.set(true);

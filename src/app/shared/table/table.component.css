@@ -9,6 +9,8 @@ section{
 table{
     width: 100%;
     background-color: var(--highlight-color);
+    border-radius: 7px;
+    border: 2px solid var(--highlight-color);
 }
 
 tbody{
@@ -35,6 +37,10 @@ tbody{
 
 :host ::ng-deep tr th{
     color: var(--primary-color);
+}
+
+:host ::ng-deep tr td{
+    border-radius: 0 0 7px 7px;
 }
 
 :host ::ng-deep tr th, :host ::ng-deep tr td{
