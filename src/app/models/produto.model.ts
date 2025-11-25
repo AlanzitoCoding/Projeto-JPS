@@ -1,7 +1,7 @@
 // Louvado seja o Senhor
 
 export interface Produto{
-    prodID : string,
+    prodID : number,
     prodNome : string,
     prodValor : number,
     prodCategoria : string;

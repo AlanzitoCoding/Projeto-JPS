@@ -14,13 +14,22 @@ export class ProdutosService {
 
   public addNewProduto( nome : string, valor : number, categoria : string ) : Observable<Produto>{
     return this.http.post<Produto>(`${this.apiURL}/addProduto`, { 
-      nomeProduto: nome, 
-      valorProduto: valor, 
-      categoriaProduto: categoria 
+      prodNome: nome, 
+      prodValor: valor, 
+      prodCategoria: categoria 
     });
   }
-
+  
   public showProdutos() : Observable<Produtos>{
     return this.http.get<ProdutosAPI>(`${this.apiURL}/showProdutos`).pipe(map((response) => response.produtos));
+  }
+  
+  public editProduto(produto : Produto) : Observable<Produto>{
+    return this.http.put<Produto>(`${this.apiURL}/updateProduto`, {
+      prodNome: produto.prodNome, 
+      prodValor: produto.prodValor, 
+      prodCategoria: produto.prodCategoria,
+      prodID: produto.prodID
+    });
   }
 }

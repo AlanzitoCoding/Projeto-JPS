@@ -12,7 +12,7 @@
 
     <main>
         <div class="prod-table-div">        
-            <app-table class="table" width="90vw" [clickFunc]="openModal">
+            <app-table class="table" width="90vw" [clickFunc]="openAddModal" overflowHeight="70vh">
                 <p btn-text>Adicionar Produto</p>
 
                 <tr table-header>
@@ -27,7 +27,7 @@
                     <td>{{ produto.prodValor }}</td>
                     <td>{{ produto.prodCategoria }}</td>
                     <td class="table-actions-div">
-                        <i class="ph ph-pencil-simple"></i>
+                        <i class="ph ph-pencil-simple" (click)="openEditModal(produto.prodID)"></i>
                         <i class="ph ph-trash-simple"></i>
                     </td>
                 </tr>
@@ -35,7 +35,7 @@
         </div>
     </main>
 
-    <app-modal [(isOpen)]="isModalOpen" class="modal" width="40vw" height="50vh">
+    <app-modal [(isOpen)]="isAddModalOpen" class="modal" width="40vw" height="50vh">
         <h1 modal-title>Adicionar Produto</h1>
         
         <i class="ph ph-package icon" modal-icon></i>
@@ -78,6 +78,58 @@
                 <div class="button-div">
                     <app-button type="submit">
                         Adicionar novo produto
+                    </app-button>
+                </div>
+            </div>
+        </form>
+    </app-modal>
+
+    <app-modal [(isOpen)]="isEditModalOpen" class="modal" width="40vw" height="50vh">
+        <h1 modal-title>Editar Produto</h1>
+        
+        <i class="ph ph-pencil-simple icon" modal-icon></i>
+
+        <form #form="ngForm" (ngSubmit)="form.valid && editProduto(form)" modal-content>
+            <div class="input-div" *ngIf="selectedProd">
+                <app-input 
+                inputType="text" 
+                inputID="nomeProduto"
+                name="nomeProduto" 
+                inputName="nomeProduto" 
+                inputValue="{{ selectedProd.prodNome }}"
+                inputPlaceholder="Nome do produto"
+                [required]="true"
+                [(ngModel)]="selectedProd.prodNome">
+                    <i class="ph ph-scan" label-icon></i>
+                </app-input>
+                
+                <app-input 
+                inputType="number" 
+                inputID="valorProduto"
+                name="valorProduto" 
+                inputName="valorProduto"
+                inputValue="{{ selectedProd.prodValor }}" 
+                inputPlaceholder="Valor do produto (unidade ou kg)"
+                [required]="true"
+                [(ngModel)]="selectedProd.prodValor">
+                    <i class="ph ph-coin" label-icon></i>
+                </app-input>
+
+                <app-input 
+                inputType="string" 
+                inputID="categoriaProduto"
+                name="categoriaProduto" 
+                inputName="categoriaProduto" 
+                inputValue="{{ selectedProd.prodCategoria }}"
+                inputPlaceholder="Categoria do produto"
+                [required]="true"
+                [(ngModel)]="selectedProd.prodCategoria">
+                    <i class="ph ph-article" label-icon></i>
+                </app-input>
+
+                <div class="button-div">
+                    <app-button type="submit">
+                        Concluir edição
                     </app-button>
                 </div>
             </div>

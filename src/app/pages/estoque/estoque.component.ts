@@ -8,27 +8,36 @@ import { ModalComponent } from "../../shared/modal/modal.component";
 import { InputComponent } from "../../shared/input/input.component";
 import { ButtonComponent } from "../../shared/button/button.component";
 import { ProdutosService } from '../../services/produtos.service';
-import { Produtos } from '../../models/produto.model';
+import { Produto, Produtos } from '../../models/produto.model';
 import { tap } from 'rxjs';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-estoque',
-  imports: [HeaderComponent, TableComponent, ModalComponent, InputComponent, ButtonComponent, FormsModule, NgForOf],
+  imports: [HeaderComponent, TableComponent, ModalComponent, InputComponent, ButtonComponent, FormsModule, NgForOf, NgIf],
   templateUrl: './estoque.component.html',
   styleUrl: './estoque.component.css'
 })
 export class EstoqueComponent {
   private readonly produtosService = inject(ProdutosService);
-  isModalOpen = signal(false);
+  isAddModalOpen = signal(false);
+  isEditModalOpen = signal(false);
   public produtos : Produtos = [];
+  selectedProd! : Produto;
+  editedProd! : Produto;
 
   public ngOnInit() : void{
     this.loadProdutos();
   }
 
-  openModal = () => {
-    this.isModalOpen.set(true);
+  openAddModal = () => {
+    this.isAddModalOpen.set(true);
+  }
+
+  openEditModal = (prodID : number) => {
+    this.selectedProd = this.produtos.find(p => p.prodID === prodID)!;
+    this.isEditModalOpen.set(true);
+    console.log(prodID, this.selectedProd);
   }
 
   addProduto(form : NgForm){
@@ -39,6 +48,7 @@ export class EstoqueComponent {
       next: (res) => {
         console.log(res);
         this.loadProdutos();
+        form.reset();
       },
       error: (err) => {
         console.error(err);
@@ -58,5 +68,27 @@ export class EstoqueComponent {
         console.error(err);
       }
     });
+  }
+
+  editProduto(form : NgForm){
+    this.editedProd = {
+      prodID: this.selectedProd.prodID,
+      prodNome: form.value.nomeProduto,
+      prodValor: form.value.valorProduto,
+      prodCategoria: form.value.categoriaProduto
+    }
+
+    console.log("clicado", this.editedProd);
+
+    this.produtosService
+    .editProduto(this.editedProd)
+    .subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    })
   }
 }

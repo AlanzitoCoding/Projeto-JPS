@@ -6,11 +6,19 @@ section{
     gap: 1.25rem;
 }
 
+
+.table-overflow-div{
+    height: 50vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
 table{
     width: 100%;
     background-color: var(--highlight-color);
     border-radius: 7px;
     border: 2px solid var(--highlight-color);
+    overflow: scroll;
 }
 
 tbody{

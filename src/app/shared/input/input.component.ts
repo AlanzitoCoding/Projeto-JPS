@@ -26,6 +26,7 @@ export class InputComponent implements ControlValueAccessor, Validator {
   @Input() inputName : string = "";
   @Input() inputID : string = "";
   @Input() inputPlaceholder : string = "";
+  @Input() inputValue : string = "";
   @Input() required = false;  
 
   value : any = '';

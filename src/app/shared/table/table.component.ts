@@ -11,6 +11,7 @@ import { ButtonComponent } from "../button/button.component";
 })
 export class TableComponent {
  @Input() width : string = "";
+ @Input() overflowHeight : string = "";
  @Input() btnDisplay : string = "";
  @Input() clickFunc! : () => void;
 }
