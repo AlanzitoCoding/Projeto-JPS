@@ -1,7 +1,9 @@
+// Louvado seja o Senhor
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Produto } from '../models/produto.model';
+import { map, Observable } from 'rxjs';
+import { Produto, Produtos, ProdutosAPI } from '../models/produto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +18,9 @@ export class ProdutosService {
       valorProduto: valor, 
       categoriaProduto: categoria 
     });
+  }
+
+  public showProdutos() : Observable<Produtos>{
+    return this.http.get<ProdutosAPI>(`${this.apiURL}/showProdutos`).pipe(map((response) => response.produtos));
   }
 }

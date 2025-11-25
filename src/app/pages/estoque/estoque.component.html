@@ -19,12 +19,17 @@
                     <th>Nome</th>
                     <th>Valor Unitário ou Kg</th>
                     <th>Categoria</th>
+                    <th>Ações</th>
                 </tr>
                 
-                <tr table-data>
-                    <td>Nome</td>
-                    <td>Valor Unitário</td>
-                    <td>Categoria</td>
+                <tr table-data *ngFor="let produto of produtos">
+                    <td>{{ produto.prodNome }}</td>
+                    <td>{{ produto.prodValor }}</td>
+                    <td>{{ produto.prodCategoria }}</td>
+                    <td class="table-actions-div">
+                        <i class="ph ph-pencil-simple"></i>
+                        <i class="ph ph-trash-simple"></i>
+                    </td>
                 </tr>
             </app-table>
         </div>
