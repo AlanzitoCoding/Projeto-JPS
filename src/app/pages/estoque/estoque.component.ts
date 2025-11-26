@@ -106,6 +106,8 @@ export class EstoqueComponent {
     .subscribe({
       next: (res) => {
         console.log(res);
+        this.loadProdutos();
+        this.isDeleteModalOpen.set(false);
       },
       error: (err) => {
         console.error(err);
