@@ -12,7 +12,7 @@ export class ProdutosService {
   apiURL = "http://localhost:8081";
   private readonly http : HttpClient = inject(HttpClient);
 
-  public addNewProduto( nome : string, valor : number, categoria : string ) : Observable<Produto>{
+  public addNewProduto(nome : string, valor : number, categoria : string) : Observable<Produto>{
     return this.http.post<Produto>(`${this.apiURL}/addProduto`, { 
       prodNome: nome, 
       prodValor: valor, 
@@ -24,12 +24,16 @@ export class ProdutosService {
     return this.http.get<ProdutosAPI>(`${this.apiURL}/showProdutos`).pipe(map((response) => response.produtos));
   }
   
-  public editProduto(produto : Produto) : Observable<Produto>{
+  public editProduto(nome : string, valor : number, categoria : string, id : number) : Observable<Produto>{
     return this.http.put<Produto>(`${this.apiURL}/updateProduto`, {
-      prodNome: produto.prodNome, 
-      prodValor: produto.prodValor, 
-      prodCategoria: produto.prodCategoria,
-      prodID: produto.prodID
+      prodNome: nome, 
+      prodValor: valor, 
+      prodCategoria: categoria,
+      prodID: id
     });
+  }
+
+  public deleteProduto(id : number) : Observable<Produto>{
+    return this.http.delete<Produto>(`${this.apiURL}/deleteProduto/${id}`);
   }
 }

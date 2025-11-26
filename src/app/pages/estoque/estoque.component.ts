@@ -22,9 +22,9 @@ export class EstoqueComponent {
   private readonly produtosService = inject(ProdutosService);
   isAddModalOpen = signal(false);
   isEditModalOpen = signal(false);
+  isDeleteModalOpen = signal(false);
   public produtos : Produtos = [];
   selectedProd! : Produto;
-  editedProd! : Produto;
 
   public ngOnInit() : void{
     this.loadProdutos();
@@ -37,7 +37,15 @@ export class EstoqueComponent {
   openEditModal = (prodID : number) => {
     this.selectedProd = this.produtos.find(p => p.prodID === prodID)!;
     this.isEditModalOpen.set(true);
-    console.log(prodID, this.selectedProd);
+  }
+
+  openDeleteModal = (prodID : number) => {
+    this.selectedProd = this.produtos.find(p => p.prodID === prodID)!;
+    this.isDeleteModalOpen.set(true);
+  }
+
+  closeDeleteModal = () => {
+    this.isDeleteModalOpen.set(false);
   }
 
   addProduto(form : NgForm){
@@ -71,17 +79,30 @@ export class EstoqueComponent {
   }
 
   editProduto(form : NgForm){
-    this.editedProd = {
-      prodID: this.selectedProd.prodID,
-      prodNome: form.value.nomeProduto,
-      prodValor: form.value.valorProduto,
-      prodCategoria: form.value.categoriaProduto
-    }
-
-    console.log("clicado", this.editedProd);
+    console.log(form.value);    
 
     this.produtosService
-    .editProduto(this.editedProd)
+    .editProduto(
+      form.value.nomeProdutoEdicao,
+      form.value.valorProdutoEdicao,
+      form.value.categoriaProdutoEdicao,
+      this.selectedProd.prodID
+    )
+    .subscribe({
+      next: (res) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+
+  deleteProduto = () => {
+    const prodID = this.selectedProd.prodID;
+
+    this.produtosService
+    .deleteProduto(prodID)
     .subscribe({
       next: (res) => {
         console.log(res);

@@ -28,7 +28,7 @@
                     <td>{{ produto.prodCategoria }}</td>
                     <td class="table-actions-div">
                         <i class="ph ph-pencil-simple" (click)="openEditModal(produto.prodID)"></i>
-                        <i class="ph ph-trash-simple"></i>
+                        <i class="ph ph-trash-simple" (click)="openDeleteModal(produto.prodID)"></i>
                     </td>
                 </tr>
             </app-table>
@@ -89,40 +89,37 @@
         
         <i class="ph ph-pencil-simple icon" modal-icon></i>
 
-        <form #form="ngForm" (ngSubmit)="form.valid && editProduto(form)" modal-content>
+        <form #formEdicao="ngForm" (ngSubmit)="editProduto(formEdicao)" modal-content>
             <div class="input-div" *ngIf="selectedProd">
                 <app-input 
                 inputType="text" 
-                inputID="nomeProduto"
-                name="nomeProduto" 
-                inputName="nomeProduto" 
+                inputID="nomeProdutoEdicao"
+                name="nomeProdutoEdicao" 
+                inputName="nomeProdutoEdicao" 
                 inputValue="{{ selectedProd.prodNome }}"
                 inputPlaceholder="Nome do produto"
-                [required]="true"
                 [(ngModel)]="selectedProd.prodNome">
                     <i class="ph ph-scan" label-icon></i>
                 </app-input>
                 
                 <app-input 
                 inputType="number" 
-                inputID="valorProduto"
-                name="valorProduto" 
-                inputName="valorProduto"
+                inputID="valorProdutoEdicao"
+                name="valorProdutoEdicao" 
+                inputName="valorProdutoEdicao"
                 inputValue="{{ selectedProd.prodValor }}" 
                 inputPlaceholder="Valor do produto (unidade ou kg)"
-                [required]="true"
                 [(ngModel)]="selectedProd.prodValor">
                     <i class="ph ph-coin" label-icon></i>
                 </app-input>
 
                 <app-input 
                 inputType="string" 
-                inputID="categoriaProduto"
-                name="categoriaProduto" 
-                inputName="categoriaProduto" 
+                inputID="categoriaProdutoEdicao"
+                name="categoriaProdutoEdicao" 
+                inputName="categoriaProdutoEdicao" 
                 inputValue="{{ selectedProd.prodCategoria }}"
                 inputPlaceholder="Categoria do produto"
-                [required]="true"
                 [(ngModel)]="selectedProd.prodCategoria">
                     <i class="ph ph-article" label-icon></i>
                 </app-input>
@@ -134,6 +131,21 @@
                 </div>
             </div>
         </form>
+    </app-modal>
+
+    <app-modal [(isOpen)]="isDeleteModalOpen" width="50vw" height="50vh" class="modal">
+        <h1 modal-title>Excluir produto</h1>
+
+        <i class="ph ph-trash-simple icon" modal-icon></i>
+
+        <div class="delete-div" modal-content *ngIf="selectedProd">
+            <h2>Realmente deseja excluir o produto: {{ selectedProd.prodNome }}?</h2>
+            <div class="delete-buttons-div">
+                <app-button [action]="deleteProduto">Sim</app-button>
+
+                <app-button [action]="closeDeleteModal">Não</app-button>
+            </div>
+        </div>
     </app-modal>
 </body>
 </html>
