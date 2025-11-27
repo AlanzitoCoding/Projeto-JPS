@@ -6,12 +6,11 @@ import { TipoCompra } from '../../../models/vendas.model';
 import { FormsModule, NgForm } from '@angular/forms';
 import { InputComponent } from "../../../shared/input/input.component";
 import { KeyValuePipe, NgForOf } from '@angular/common';
-import { TableComponent } from "../../../shared/table/table.component";
 import { ButtonComponent } from "../../../shared/button/button.component";
 
 @Component({
   selector: 'app-modal-nova-venda',
-  imports: [ModalComponent, FormsModule, InputComponent, NgForOf, KeyValuePipe, TableComponent, ButtonComponent],
+  imports: [ModalComponent, FormsModule, InputComponent, NgForOf, KeyValuePipe, ButtonComponent],
   templateUrl: './modal-nova-venda.component.html',
   styleUrl: './modal-nova-venda.component.css'
 })

@@ -1,7 +1,7 @@
 <!-- Louvado seja o Senhor -->
 
-<app-modal [(isOpen)]="isNovaVendaOpen" width="50vw">
-    <h1 modal-title>Adicionar novo registro de venda</h1>
+<app-modal [(isOpen)]="isNovaVendaOpen" width="35vw" height="50vh">
+    <h1 modal-title>Adicionar nova venda</h1>
     <i class="ph ph-coins icon" modal-icon></i>
 
     <form #form="ngForm" (ngSubmit)="form.valid && adicionarRegistroVenda(form)" modal-content>
@@ -26,57 +26,24 @@
                 <i class="ph ph-calendar" label-icon></i>
                 <i class="ph ph-info" optional-icon></i>
             </app-input>
+             
+            <app-input 
+            inputType="number" 
+            inputID="valorCompra"
+            name="valorCompra" 
+            inputName="valorCompra"
+            inputPlaceholder="Valor da compra"
+            [required]="true"
+            ngModel>
+            <i class="ph ph-letter-circle-p" label-icon></i>
+            </app-input>
 
             <select name="tipoCompra" id="tipoCompra" ngModel required>
                 <option value="" selected disabled hidden>Selecione uma opção</option>
                 <option *ngFor="let enum of tipoCompraEnum | keyvalue" [value]="enum.key">{{ enum.value }}</option>
             </select>
         </section>
-
-        <section class="table-section">
-            <app-table width="45vw" btnDisplay="none">
-                <p btn-text></p>
-
-                <tr table-header>
-                    <th>Nome do Produto</th>
-                    <th>Valor do Produto</th>
-                    <th>Quantidade Comprada</th>
-                    <th>Marcar como Comprado</th>
-                </tr>
-
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><input type="number" name="quantidadeProduto" id="quantidadeProduto"></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                </tr>
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><input type="number" name="quantidadeProduto" id="quantidadeProduto"></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                </tr>
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><input type="number" name="quantidadeProduto" id="quantidadeProduto"></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                </tr>
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><input type="number" name="quantidadeProduto" id="quantidadeProduto"></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                </tr>
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td><input type="number" name="quantidadeProduto" id="quantidadeProduto"></td>
-                    <td><input type="checkbox" name="" id=""></td>
-                </tr>
-            </app-table>
-        </section>
-
+        
         <section class="button-section">
             <app-button type="submit">
                 Registrar compra

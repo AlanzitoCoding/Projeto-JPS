@@ -20,9 +20,11 @@ import { NgForOf, NgIf } from '@angular/common';
 })
 export class EstoqueComponent {
   private readonly produtosService = inject(ProdutosService);
+
   isAddModalOpen = signal(false);
   isEditModalOpen = signal(false);
   isDeleteModalOpen = signal(false);
+
   public produtos : Produtos = [];
   selectedProd! : Produto;
 
@@ -57,6 +59,7 @@ export class EstoqueComponent {
         console.log(res);
         this.loadProdutos();
         form.reset();
+        this.isAddModalOpen.set(false);
       },
       error: (err) => {
         console.error(err);
@@ -91,6 +94,8 @@ export class EstoqueComponent {
     .subscribe({
       next: (res) => {
         console.log(res);
+        this.loadProdutos();
+        this.isEditModalOpen.set(false);
       },
       error: (err) => {
         console.error(err);
