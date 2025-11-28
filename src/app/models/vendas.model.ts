@@ -8,10 +8,10 @@ export interface RegistroVenda{
     tipoCompra : TipoCompra
 }
 
-export interface RegistroDevedores{
-    id : number,
-    idCliente : number,
-    idRegistroVenda : number
+export interface RegistroVendas extends Array<RegistroVenda>{}
+
+export interface RegistroVendasAPI{
+    vendas : RegistroVendas;
 }
 
 export enum TipoCompra{

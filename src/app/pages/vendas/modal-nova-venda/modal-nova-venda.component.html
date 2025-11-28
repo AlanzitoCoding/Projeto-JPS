@@ -1,10 +1,10 @@
 <!-- Louvado seja o Senhor -->
 
-<app-modal [(isOpen)]="isNovaVendaOpen" width="35vw" height="50vh">
+<app-modal [(isOpen)]="isNovaVendaOpen" width="35vw" height="60vh">
     <h1 modal-title>Adicionar nova venda</h1>
     <i class="ph ph-coins icon" modal-icon></i>
 
-    <form #form="ngForm" (ngSubmit)="form.valid && adicionarRegistroVenda(form)" modal-content>
+    <form #form="ngForm" (ngSubmit)="form.valid && addRegistroVenda(form)" modal-content>
         <section class="input-section">
             <app-input 
             inputType="text" 

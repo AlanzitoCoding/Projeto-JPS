@@ -22,11 +22,11 @@
                     <th>Data da venda</th>
                 </tr>
 
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
+                <tr table-data *ngFor="let venda of vendas">
+                    <td>{{ venda.nomeComprador }}</td>
+                    <td>{{ venda.vendaValor }}</td>
+                    <td>{{ venda.tipoCompra }}</td>
+                    <td>{{ venda.vendaDataRegistro | date: "dd/MM/yyyy"}}</td>
                 </tr>
             </app-table>
             
