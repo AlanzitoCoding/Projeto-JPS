@@ -24,4 +24,8 @@ export class VendasService {
   public showVendas() : Observable<RegistroVendas>{
     return this.http.get<RegistroVendasAPI>(`${this.apiURL}/showVendas`).pipe(map((response) => response.vendas));
   }
+
+  public showDividas() : Observable<RegistroVendas>{
+    return this.http.get<RegistroVendasAPI>(`${this.apiURL}/showDividas`).pipe(map((response) => response.dividas));
+  }
 }

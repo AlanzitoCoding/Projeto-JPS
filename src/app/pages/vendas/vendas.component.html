@@ -39,10 +39,10 @@
                     <th>Data da dívida</th>
                 </tr>
 
-                <tr table-data>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
+                <tr table-data *ngFor="let divida of dividas">
+                    <td>{{ divida.nomeComprador }}</td>
+                    <td>{{ divida.vendaValor }}</td>
+                    <td>{{ divida.vendaDataRegistro | date: "dd/MM/yyyy"}}</td>
                 </tr>
             </app-table>
         </section>

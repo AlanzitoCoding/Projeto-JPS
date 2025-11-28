@@ -1,14 +1,14 @@
 // Louvado seja o Senhor
 
-import { Component, inject, signal } from '@angular/core';
+import { Component, afterRender, inject, signal } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { TableComponent } from "../../shared/table/table.component";
 import { ModalNovaVendaComponent } from "./modal-nova-venda/modal-nova-venda.component";
 import { ModalRegistroDevedoresComponent } from "./modal-registro-devedores/modal-registro-devedores.component";
 import { VendasService } from '../../services/vendas.service';
-import { RegistroVendas, TipoCompra } from '../../models/vendas.model';
+import { RegistroVendas } from '../../models/vendas.model';
 import { tap } from 'rxjs';
-import { DatePipe, KeyValuePipe, NgForOf } from '@angular/common';
+import { DatePipe, NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-vendas',
@@ -22,11 +22,11 @@ export class VendasComponent {
 
   apiService = inject(VendasService);
   public vendas : RegistroVendas = [];
-  tipoCompraArray = Object.values(TipoCompra).map((item) => String(item));
+  public dividas : RegistroVendas = [];
 
   public ngOnInit() : void{
     this.loadVendas();
-    this.tipoCompraArray;
+    this.loadDividas();
   }
 
   openNovaVendaModal = () => {
@@ -47,6 +47,19 @@ export class VendasComponent {
       error: (err) => {
         console.error(err);
       }
-    })
+    });
+  }
+
+  loadDividas(){
+    this.apiService.showDividas()
+    .pipe(tap((dividas : RegistroVendas) => (this.dividas = dividas)))
+    .subscribe({
+      next: (res) => {
+        console.log(this.dividas);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
   }
 }

@@ -12,6 +12,7 @@ export interface RegistroVendas extends Array<RegistroVenda>{}
 
 export interface RegistroVendasAPI{
     vendas : RegistroVendas;
+    dividas : RegistroVendas;
 }
 
 export enum TipoCompra{
