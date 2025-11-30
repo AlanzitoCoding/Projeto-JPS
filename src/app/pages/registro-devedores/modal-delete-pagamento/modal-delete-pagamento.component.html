@@ -1,0 +1,16 @@
+<!-- Louvado seja o Senhor -->
+
+<app-modal [(isOpen)]="isDeletePagamentoModalOpen" width="50vw" height="50vh" class="modal">
+    <h1 modal-title>Excluir Pagamento da Divida</h1>
+
+    <i class="ph ph-trash-simple icon" modal-icon></i>
+
+    <div class="delete-div" modal-content>
+        <h2>Realmente deseja excluir o registro?</h2>
+        <div class="delete-buttons-div">
+            <app-button (clicked)="deletePagamentoDivida()">Sim</app-button>
+
+            <app-button (clicked)="closeDeleteModal()">Não</app-button>
+        </div>
+    </div>
+</app-modal>

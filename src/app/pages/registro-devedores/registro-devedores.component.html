@@ -13,11 +13,11 @@
     <main>
         <section class="info-section">
             <div class="info-data-div">
-                <h1>Nome: {{ nomeDevedor }}</h1>
+                <h1>Nome: {{ nomeCliente }}</h1>
                 
                 <div class="valor-div">
-                    <h2>Valor da Dívida: R$ {{ divida }}</h2>
-                    <app-button [action]="openModal">
+                    <h2>Valor da Dívida: {{ divida | currency: "BRL" }}</h2>
+                    <app-button (clicked)="openPagamentoModal()">
                         <p>Pagar dívida</p>
                     </app-button>
                 </div>
@@ -28,11 +28,16 @@
                     <tr table-header>
                         <th>Valor da Dívida</th>
                         <th>Data da Dívida</th>
+                        <th>Ações</th>
                     </tr>
 
-                    <tr table-data>
-                        <td>304</td>
-                        <td>12/12/20</td>
+                    <tr table-data *ngFor="let regDivida of registroDividas">
+                        <td>{{ regDivida.valorDivida | currency: "BRL" }}</td>
+                        <td>{{ regDivida.dataDivida | date: "dd/MM/yyyy" }}</td>
+                        <td class="table-actions-div">
+                            <i class="ph ph-pencil-simple" (click)="openEditDividaModal(regDivida.regDividasID)"></i>
+                            <i class="ph ph-trash-simple" (click)="openDeleteDividaModal(regDivida.regDividasID)"></i>
+                        </td>
                     </tr>
                 </app-table>
                 
@@ -40,18 +45,23 @@
                      <tr table-header>
                         <th>Valor do Pagamento</th>
                         <th>Data do Pagamento</th>
+                        <th>Ações</th>
                     </tr>
 
-                    <tr table-data>
-                        <td>123</td>
-                        <td>20/12/20</td>
+                    <tr table-data *ngFor="let pagDivida of pagamentoDividas">
+                        <td>{{ pagDivida.valorPagamento | currency: "BRL" }}</td>
+                        <td>{{ pagDivida.dataPagamento | date: "dd/MM/yyyy" }}</td>
+                        <td class="table-actions-div">
+                            <i class="ph ph-pencil-simple" (click)="openEditPagamentoModal(pagDivida.pagDividasID)"></i>
+                            <i class="ph ph-trash-simple" (click)="openDeletePagamentoModal(pagDivida.pagDividasID)"></i>
+                        </td>
                     </tr>
                 </app-table>
             </div>
         </section>
 
         <section class="devedores-table-section">
-            <h2>Lista Geral de Devedores</h2>
+            <h2>Lista Geral de Clientes</h2>
 
             <app-table width="90vw" btnDisplay="none">
                 <tr table-header>
@@ -60,12 +70,12 @@
                     <th>Ações</th>
                 </tr>
                 
-                <tr table-data>
-                    <td>Johan</td>
-                    <td>1231</td>
+                <tr table-data *ngFor="let cliente of clientes">
+                    <td>{{ cliente.clienteNome }}</td>
+                    <td>{{ cliente.clienteDivida | currency: "BRL" }}</td>
                     <td>
-                        <app-button>
-                            Carregar informações do devedor
+                        <app-button (clicked)="chooseCliente(cliente.clienteID)">
+                            Carregar informações do cliente
                         </app-button>
                     </td>
                 </tr>
@@ -73,6 +83,10 @@
         </section>
     </main>
 
-    <app-modal-pagamento [(isPagamentoOpen)]="isPagamentoModalOpen" />
+    <app-modal-pagamento [(isPagamentoOpen)]="isPagamentoModalOpen" [clienteID]="clienteID" />
+    <app-modal-edit-divida [(isEditDividaOpen)]="isEditDividaModalOpen" [registro]="selectedRegistroDivida" />
+    <app-modal-edit-pagamento [(isEditPagamentoOpen)]="isEditPagamentoModalOpen" [registro]="selectedPagamentoDivida" />
+    <app-modal-delete-divida [(isDeleteRegistroModalOpen)]="isDeleteDividaModalOpen" [registro]="selectedRegistroDivida" /> 
+    <app-modal-delete-pagamento [(isDeletePagamentoModalOpen)]="isDeletePagamentoModalOpen" [registro]="selectedPagamentoDivida" /> 
 </body>
 </html>

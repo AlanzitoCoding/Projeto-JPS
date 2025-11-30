@@ -6,23 +6,29 @@ import { TableComponent } from "../../shared/table/table.component";
 import { ModalNovaVendaComponent } from "./modal-nova-venda/modal-nova-venda.component";
 import { ModalRegistroDevedoresComponent } from "./modal-registro-devedores/modal-registro-devedores.component";
 import { VendasService } from '../../services/vendas.service';
-import { RegistroVendas } from '../../models/vendas.model';
+import { RegistroVenda, RegistroVendas } from '../../models/vendas.model';
 import { tap } from 'rxjs';
-import { DatePipe, NgForOf } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgForOf } from '@angular/common';
+import { ModalDeleteVendaComponent } from "./modal-delete-venda/modal-delete-venda.component";
+import { ModalEditVendaComponent } from "./modal-edit-venda/modal-edit-venda.component";
 
 @Component({
   selector: 'app-vendas',
-  imports: [HeaderComponent, TableComponent, ModalNovaVendaComponent, ModalRegistroDevedoresComponent, NgForOf, DatePipe],
+  imports: [HeaderComponent, TableComponent, ModalNovaVendaComponent, ModalRegistroDevedoresComponent, NgForOf, DatePipe, CurrencyPipe, ModalDeleteVendaComponent, ModalEditVendaComponent],
   templateUrl: './vendas.component.html',
   styleUrl: './vendas.component.css'
 })
 export class VendasComponent {
   isNovaVendaModalOpen = signal(false);
   isDevedoresModalOpen = signal(false);
+  isEditVendaModalOpen = signal(false);
+  isDeleteVendaModalOpen = signal(false);
 
   apiService = inject(VendasService);
   public vendas : RegistroVendas = [];
   public dividas : RegistroVendas = [];
+
+  selectedRegistroVenda! : RegistroVenda;
 
   public ngOnInit() : void{
     this.loadVendas();
@@ -35,6 +41,34 @@ export class VendasComponent {
 
   openDevedoresModal = () => {
     this.isDevedoresModalOpen.set(true);
+  }
+
+  openEditVendaModal = (id : number) => {
+    this.selectedRegistroVenda = structuredClone(
+      this.vendas.find(p => p.vendaID === id)!
+    )
+    this.isEditVendaModalOpen.set(true);
+  }
+
+  openDeleteVendaModal = (id : number) => {
+    this.selectedRegistroVenda = structuredClone(
+      this.vendas.find(p => p.vendaID === id)!
+    )    
+    this.isDeleteVendaModalOpen.set(true);
+  }
+
+  openEditFiadoModal = (id : number) => {
+    this.selectedRegistroVenda = structuredClone(
+      this.dividas.find(p => p.vendaID === id)!
+    )
+    this.isEditVendaModalOpen.set(true);
+  }
+
+  openDeleteFiadoModal = (id : number) => {
+    this.selectedRegistroVenda = structuredClone(
+      this.dividas.find(p => p.vendaID === id)!
+    )    
+    this.isDeleteVendaModalOpen.set(true);
   }
 
   loadVendas(){

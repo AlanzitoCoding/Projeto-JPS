@@ -1,6 +1,6 @@
 // Louvado seja o Senhor
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -9,12 +9,11 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.css'
 })
 export class ButtonComponent {
-  @Input() action! : () => void;
   @Input() type : string = "";
 
-  runFunc(){
-    if(this.action){
-      this.action();
-    }
+  @Output() clicked = new EventEmitter<void>();
+
+  emitClick(){
+    this.clicked.emit();
   }
 }

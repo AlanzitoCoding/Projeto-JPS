@@ -30,6 +30,18 @@ body{
     padding: 5rem 0;
 }
 
+.table-actions-div{
+    font-size: 1.125rem;
+}
+
+.table-actions-div .ph{
+    cursor: pointer;
+}
+
+.table-actions-div .ph-pencil-simple{
+    margin-right: 1rem;
+}
+
 .devedores-table-section{
     display: flex;
     flex-direction: column;

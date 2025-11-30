@@ -1,0 +1,38 @@
+<!-- Louvado seja o Senhor -->
+
+<app-modal [(isOpen)]="isEditPagamentoOpen" class="modal" width="40vw" height="50vh">
+    <h1 modal-title>Editar Pagamento da Divida</h1>
+    
+    <i class="ph ph-pencil-simple icon" modal-icon></i>
+
+    <form #formEdicao="ngForm" (ngSubmit)="editPagamentoDivida(formEdicao)" modal-content>
+        <div class="input-div">
+            <app-input 
+            inputType="number" 
+            inputID="valorPagamento"
+            name="valorPagamento" 
+            inputName="valorPagamento" 
+            inputValue="{{ formValues.valorPagamento }}"
+            inputPlaceholder="Valor do Pagamento"
+            [(ngModel)]="formValues.valorPagamento">
+                <i class="ph ph-scan" label-icon></i>
+            </app-input>
+            
+            <app-input 
+            inputType="date" 
+            inputID="dataPagamento"
+            name="dataPagamento" 
+            inputName="dataPagamento"
+            inputValue="{{ formValues.dataPagamento }}"
+            [(ngModel)]="formValues.dataPagamento">
+                <i class="ph ph-coin" label-icon></i>
+            </app-input>
+
+            <div class="button-div">
+                <app-button type="submit">
+                    Concluir edição
+                </app-button>
+            </div>
+        </div>
+    </form>
+</app-modal>

@@ -2,24 +2,22 @@
 
 import { Component, inject, Input, model } from '@angular/core';
 import { ModalComponent } from "../../../shared/modal/modal.component";
-import { FormsModule, NgForm } from '@angular/forms';
-import { InputComponent } from "../../../shared/input/input.component";
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { ClientesService } from '../../../services/clientes.service';
 import { Router } from '@angular/router';
+import { PagamentoDivida } from '../../../models/clientes.model';
 
 @Component({
-  selector: 'app-modal-pagamento',
-  imports: [ModalComponent, FormsModule, InputComponent, ButtonComponent],
-  templateUrl: './modal-pagamento.component.html',
-  styleUrl: './modal-pagamento.component.css'
+  selector: 'app-modal-delete-pagamento',
+  imports: [ModalComponent, ButtonComponent],
+  templateUrl: './modal-delete-pagamento.component.html',
+  styleUrl: './modal-delete-pagamento.component.css'
 })
-export class ModalPagamentoComponent {
-  isPagamentoOpen = model(false);
-  apiService = inject(ClientesService);
+export class ModalDeletePagamentoComponent {
+  isDeletePagamentoModalOpen = model(false);
+  @Input() registro! : PagamentoDivida; 
+  apiService = inject(ClientesService); 
   router = inject(Router);
-
-  @Input() clienteID! : number;
 
   reloadComponent() {
     const url = this.router.url; 
@@ -29,19 +27,21 @@ export class ModalPagamentoComponent {
     });
   }
 
-  realizarPagamento(form : NgForm){
-    console.log(this.clienteID);
-    
-    this.apiService.pagarDivida(this.clienteID, form.value.valorPagamento)
+  deletePagamentoDivida(){
+    this.apiService.deletePagamentoDivida(this.registro.pagDividasID, this.registro.clienteID_FK)
     .subscribe({
       next: (res) => {
         console.log(res);
+        this.closeDeleteModal();
         this.reloadComponent();
-        this.isPagamentoOpen.set(false);
       },
       error: (err) => {
         console.error(err);
       }
     })
+  }
+
+  closeDeleteModal(){
+    this.isDeletePagamentoModalOpen.set(false);
   }
 }

@@ -28,4 +28,17 @@ export class VendasService {
   public showDividas() : Observable<RegistroVendas>{
     return this.http.get<RegistroVendasAPI>(`${this.apiURL}/showDividas`).pipe(map((response) => response.dividas));
   }
+
+  public updateVenda(id : number, data : Date, valor : number, nome : string, tipo : TipoCompra) : Observable<RegistroVenda>{
+    return this.http.put<RegistroVenda>(`${this.apiURL}/updateVenda/${id}`, {
+      vendaDataRegistro: data, 
+      vendaValor: valor, 
+      nomeComprador: nome, 
+      tipoCompra: tipo  
+    })
+  }
+
+  public deleteVenda(id : number) : Observable<RegistroVenda>{
+    return this.http.delete<RegistroVenda>(`${this.apiURL}/deleteVenda/${id}`)
+  }
 }

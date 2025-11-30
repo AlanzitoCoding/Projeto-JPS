@@ -16,40 +16,50 @@
                 <p btn-text>Adicionar registro de venda</p>
 
                 <tr table-header>
-                    <th>Nome do comprador</th>
                     <th>Valor da compra</th>
                     <th>Tipo da compra</th>
                     <th>Data da venda</th>
+                    <th>Ações</th>
                 </tr>
 
                 <tr table-data *ngFor="let venda of vendas">
-                    <td>{{ venda.nomeComprador }}</td>
-                    <td>{{ venda.vendaValor }}</td>
+                    <td>{{ venda.vendaValor | currency: "BRL" }}</td>
                     <td>{{ venda.tipoCompra }}</td>
                     <td>{{ venda.vendaDataRegistro | date: "dd/MM/yyyy"}}</td>
+                    <td class="table-actions-div">
+                        <i class="ph ph-pencil-simple" (click)="openEditVendaModal(venda.vendaID)"></i>
+                        <i class="ph ph-trash-simple" (click)="openDeleteVendaModal(venda.vendaID)"></i>
+                    </td>                    
                 </tr>
             </app-table>
             
             <app-table width="40vw" [clickFunc]="openDevedoresModal">
-                <p btn-text>Ver lista de devedores</p>
+                <p btn-text>Ver lista de clientes</p>
 
                 <tr table-header>
                     <th>Nome do devedor</th>
                     <th>Valor da dívida</th>
                     <th>Data da dívida</th>
+                    <th>Ações</th>
                 </tr>
 
                 <tr table-data *ngFor="let divida of dividas">
                     <td>{{ divida.nomeComprador }}</td>
-                    <td>{{ divida.vendaValor }}</td>
+                    <td>{{ divida.vendaValor | currency: "BRL" }}</td>
                     <td>{{ divida.vendaDataRegistro | date: "dd/MM/yyyy"}}</td>
+                    <td class="table-actions-div">
+                        <i class="ph ph-pencil-simple" (click)="openEditFiadoModal(divida.vendaID)"></i>
+                        <i class="ph ph-trash-simple" (click)="openDeleteFiadoModal(divida.vendaID)"></i>
+                    </td>
                 </tr>
             </app-table>
         </section>
     </main>
 
     <app-modal-nova-venda [(isNovaVendaOpen)]="isNovaVendaModalOpen" />
-
     <app-modal-registro-devedores [(isRegistroDevedoresOpen)]="isDevedoresModalOpen" />
+
+    <app-modal-delete-venda [(isDeleteVendaModalOpen)]="isDeleteVendaModalOpen" [registro]="selectedRegistroVenda" />
+    <app-modal-edit-venda [(isEditVendaOpen)]="isEditVendaModalOpen" [registro]="selectedRegistroVenda" />
 </body>
 </html>

@@ -11,3 +11,14 @@ body{
     justify-content: space-evenly;
 }
 
+.table-actions-div{
+    font-size: 1.125rem;
+}
+
+.table-actions-div .ph{
+    cursor: pointer;
+}
+
+.table-actions-div .ph-pencil-simple{
+    margin-right: 1rem;
+}

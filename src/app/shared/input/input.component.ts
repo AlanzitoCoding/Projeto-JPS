@@ -35,7 +35,11 @@ export class InputComponent implements ControlValueAccessor, Validator {
   onTouched = () => {};
 
   writeValue(value : any) : void {
-    this.value = value ?? '';
+    if (this.inputType === "date" && value) {
+      this.value = new Date(value).toISOString().split("T")[0];
+    } else {
+      this.value = value ?? '';
+    }
   }
 
   registerOnChange(fn : any) : void {

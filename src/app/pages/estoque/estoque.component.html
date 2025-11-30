@@ -141,9 +141,9 @@
         <div class="delete-div" modal-content *ngIf="selectedProd">
             <h2>Realmente deseja excluir o produto: {{ selectedProd.prodNome }}?</h2>
             <div class="delete-buttons-div">
-                <app-button [action]="deleteProduto">Sim</app-button>
+                <app-button (clicked)="deleteProduto()">Sim</app-button>
 
-                <app-button [action]="closeDeleteModal">Não</app-button>
+                <app-button (clicked)="closeDeleteModal()">Não</app-button>
             </div>
         </div>
     </app-modal>
