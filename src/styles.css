@@ -5,10 +5,11 @@
 :root{
     --primary-color: #fff;
     --secondary-color: #000;
-    --tertiary-color: rgb(70, 200, 70);
+    --tertiary-color: #37B45C;
     --highlight-color: #73AF6F;
     
     --card-bg-color: #F1F3E0;
+    --secondary-table-row-color: #F4F9F4;
 }
 
 *{

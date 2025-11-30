@@ -17,7 +17,7 @@ table{
     width: 100%;
     background-color: var(--highlight-color);
     border-radius: 7px;
-    border: 2px solid var(--highlight-color);
+    border: 1px solid var(--highlight-color);
     overflow: scroll;
 }
 
@@ -38,9 +38,71 @@ tbody{
     justify-content: space-between;
 }
 
-.filters-div{
+.filters-div {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* WRAPPER */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* INPUT */
+.search-wrapper input {
+    padding: 0.6rem 1rem 0.6rem 2.6rem;
+    font-size: 1.05rem;
+
+    background: #f3f3f3;
+    color: var(--secondary-color);
+
+    border: 2px solid transparent;
+    border-radius: 8px;
+
+    transition: all 0.25s ease;
+
+    width: 14rem; /* aumenta se quiser */
+}
+
+/* INPUT FOCUS */
+.search-wrapper input:focus {
+    outline: none;
+    border-color: var(--tertiary-color);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+}
+
+/* ÍCONE DENTRO DO INPUT */
+.search-wrapper i {
+    position: absolute;
+    left: 0.75rem;
+
+    font-size: 1.3rem;
+    pointer-events: none;
+
+    color: var(--secondary-color);
+    opacity: 0.7;
+
+    transition: opacity 0.25s ease;
+}
+
+.search-wrapper input:focus + i,
+.search-wrapper:hover i {
+    opacity: 1;
+}
+
+/* ÍCONE DO FUNIL */
+.filter-icon {
+    font-size: 1.6rem;
+    cursor: pointer;
+    opacity: 0.75;
+    transition: opacity 0.25s ease;
+}
+
+.filter-icon:hover {
+    opacity: 1;
 }
 
 :host ::ng-deep tr th{
@@ -52,5 +114,9 @@ tbody{
 }
 
 :host ::ng-deep tr th, :host ::ng-deep tr td{
-    padding: 0.5rem 0;
+    padding: 0.875rem 1.125rem;
+}
+
+:host ::ng-deep tr:nth-child(even) {
+    background-color: var(--secondary-table-row-color);
 }

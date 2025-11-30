@@ -1,11 +1,11 @@
 <!-- Louvado seja o Senhor -->
 
-<a [href]="href">
-    <div>
-        <ng-content select="[card-img]"/>
+<a [href]="href" class="app-card">
+    <div class="card-img">
+        <ng-content select="[card-img]"></ng-content>
     </div>
 
-    <div>
-        <ng-content select="[card-title]"/>
+    <div class="card-title">
+        <ng-content select="[card-title]"></ng-content>
     </div>
 </a>

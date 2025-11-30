@@ -1,1 +1,14 @@
 /* Louvado seja o Senhor */
+
+.input-div{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 0;
+}
+
+.button-div{
+    display: flex;
+    justify-content: flex-end;
+}
