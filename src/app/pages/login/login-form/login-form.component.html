@@ -1,14 +1,14 @@
 <!-- Louvado seja o Senhor -->
 
-<form action="">
+<form #form="ngForm" (ngSubmit)="login(form)">
     <label for="username">
         <i class="ph ph-user"></i>
-        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="text" name="username" id="username" placeholder="Username" ngModel>
     </label>
     
     <label for="password">
         <i class="ph ph-password"></i>
-        <input type="password" name="password" id="password" placeholder="Senha">
+        <input type="password" name="password" id="password" placeholder="Senha" ngModel>
         <i class="ph ph-eye"></i>
     </label>
     
