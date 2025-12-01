@@ -20,7 +20,8 @@ export interface RegistroDivida{
     regDividasID : number,
     valorDivida : number,
     dataDivida : Date,
-    clienteID_FK : number
+    clienteID_FK : number,
+    vendaID_FK : number
 }
 
 export interface RegistroDividas extends Array<RegistroDivida>{}
