@@ -84,7 +84,7 @@
     </main>
 
     <app-modal-pagamento [(isPagamentoOpen)]="isPagamentoModalOpen" [clienteID]="clienteID" />
-    <app-modal-edit-divida [(isEditDividaOpen)]="isEditDividaModalOpen" [registro]="selectedRegistroDivida" />
+    <app-modal-edit-divida [(isEditDividaOpen)]="isEditDividaModalOpen" [registro]="selectedRegistroDivida" [clienteNome]="nomeCliente" />
     <app-modal-edit-pagamento [(isEditPagamentoOpen)]="isEditPagamentoModalOpen" [registro]="selectedPagamentoDivida" />
     <app-modal-delete-divida [(isDeleteRegistroModalOpen)]="isDeleteDividaModalOpen" [registro]="selectedRegistroDivida" /> 
     <app-modal-delete-pagamento [(isDeletePagamentoModalOpen)]="isDeletePagamentoModalOpen" [registro]="selectedPagamentoDivida" /> 

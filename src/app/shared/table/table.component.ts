@@ -1,11 +1,12 @@
 // Louvado seja o Senhor
 
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonComponent } from "../button/button.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-table',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, FormsModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })
@@ -14,4 +15,13 @@ export class TableComponent {
  @Input() overflowHeight : string = "";
  @Input() btnDisplay : string = "";
  @Input() clickFunc! : () => void;
+
+ @Input() searchFn! : (search : string) => void;
+ searchText : string = "";
+
+ onSearchChange(){
+  if(this.searchFn){
+    this.searchFn(this.searchText);
+  }
+ }
 }

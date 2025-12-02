@@ -12,7 +12,7 @@
 
     <main>
         <section class="tables-section">
-            <app-table width="40vw" [clickFunc]="openNovaVendaModal">
+            <app-table width="40vw" [clickFunc]="openNovaVendaModal" >
                 <p btn-text>Adicionar registro de venda</p>
 
                 <tr table-header>
@@ -24,8 +24,8 @@
 
                 <tr table-data *ngFor="let venda of vendas">
                     <td>{{ venda.vendaValor | currency: "BRL" }}</td>
-                    <td>{{ venda.tipoCompra }}</td>
-                    <td>{{ venda.vendaDataRegistro | date: "dd/MM/yyyy"}}</td>
+                    <td>{{ venda.tipoCompra | tipoCompra }}</td>
+                    <td>{{ venda.vendaDataRegistro | date: "dd/MM/yyyy" }}</td>
                     <td class="table-actions-div">
                         <i class="ph ph-pencil-simple" (click)="openEditVendaModal(venda.vendaID)"></i>
                         <i class="ph ph-trash-simple" (click)="openDeleteVendaModal(venda.vendaID)"></i>

@@ -11,10 +11,11 @@ import { tap } from 'rxjs';
 import { CurrencyPipe, DatePipe, NgForOf } from '@angular/common';
 import { ModalDeleteVendaComponent } from "./modal-delete-venda/modal-delete-venda.component";
 import { ModalEditVendaComponent } from "./modal-edit-venda/modal-edit-venda.component";
+import { TipoCompraPipe } from '../../pipes/tipo-compra.pipe';
 
 @Component({
   selector: 'app-vendas',
-  imports: [HeaderComponent, TableComponent, ModalNovaVendaComponent, ModalRegistroDevedoresComponent, NgForOf, DatePipe, CurrencyPipe, ModalDeleteVendaComponent, ModalEditVendaComponent],
+  imports: [HeaderComponent, TableComponent, ModalNovaVendaComponent, ModalRegistroDevedoresComponent, NgForOf, DatePipe, CurrencyPipe, ModalDeleteVendaComponent, ModalEditVendaComponent, TipoCompraPipe],
   templateUrl: './vendas.component.html',
   styleUrl: './vendas.component.css'
 })

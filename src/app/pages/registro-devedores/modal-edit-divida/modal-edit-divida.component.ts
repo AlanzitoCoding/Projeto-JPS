@@ -6,8 +6,9 @@ import { InputComponent } from "../../../shared/input/input.component";
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { FormsModule, NgForm } from '@angular/forms';
 import { RegistroDivida } from '../../../models/clientes.model';
-import { ClientesService } from '../../../services/clientes.service';
 import { Router } from '@angular/router';
+import { VendasService } from '../../../services/vendas.service';
+import { TipoCompra } from '../../../models/vendas.model';
 
 @Component({
   selector: 'app-modal-edit-divida',
@@ -18,7 +19,8 @@ import { Router } from '@angular/router';
 export class ModalEditDividaComponent {
   isEditDividaOpen = model(false);
   @Input() registro! : RegistroDivida; 
-  apiService = inject(ClientesService); 
+  @Input() clienteNome! : string; 
+  apiService = inject(VendasService); 
   router = inject(Router);
 
   ngOnChanges() : void{
@@ -48,7 +50,7 @@ export class ModalEditDividaComponent {
 
   editRegistroDivida(form : NgForm){
     this.apiService
-    .updateRegistroDivida(this.registro.regDividasID, form.value.valorDivida, form.value.dataDivida, this.registro.clienteID_FK)
+    .updateVenda(this.registro.vendaID_FK, form.value.dataDivida, form.value.valorDivida, this.clienteNome, TipoCompra.fiado)
     .subscribe({
       next: (res) => {
         console.log(res);

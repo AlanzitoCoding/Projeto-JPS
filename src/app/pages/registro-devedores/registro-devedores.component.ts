@@ -21,8 +21,8 @@ import { ModalDeletePagamentoComponent } from "./modal-delete-pagamento/modal-de
   styleUrl: './registro-devedores.component.css'
 })
 export class RegistroDevedoresComponent {
-  nomeCliente : string = 'Douglas';
-  divida : number = 133;
+  nomeCliente! : string;
+  divida! : number;
 
   isPagamentoModalOpen = signal(false);
   isEditDividaModalOpen = signal(false);
@@ -111,9 +111,18 @@ export class RegistroDevedoresComponent {
   }
 
   openEditDividaModal = (id : number) => {
+    let clienteID = 0;
+    
     this.selectedRegistroDivida = structuredClone(
       this.registroDividas.find(p => p.regDividasID === id)!
     )
+
+    clienteID = this.registroDividas.find(p => p.regDividasID === id)!.clienteID_FK;
+
+    this.nomeCliente = this.clientes.find(p => p.clienteID === clienteID)!.clienteNome;
+
+    console.log(clienteID, this.nomeCliente);
+
     this.isEditDividaModalOpen.set(true);
   }
 

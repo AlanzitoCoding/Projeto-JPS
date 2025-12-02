@@ -6,6 +6,8 @@ import { ButtonComponent } from "../../../shared/button/button.component";
 import { RegistroDivida } from '../../../models/clientes.model';
 import { ClientesService } from '../../../services/clientes.service';
 import { Router } from '@angular/router';
+import { VendasComponent } from '../../vendas/vendas.component';
+import { VendasService } from '../../../services/vendas.service';
 
 @Component({
   selector: 'app-modal-delete-divida',
@@ -16,7 +18,7 @@ import { Router } from '@angular/router';
 export class ModalDeleteDividaComponent {
   isDeleteRegistroModalOpen = model(false);
   @Input() registro! : RegistroDivida; 
-  apiService = inject(ClientesService); 
+  apiService = inject(VendasService); 
   router = inject(Router);
 
   reloadComponent() {
@@ -28,11 +30,10 @@ export class ModalDeleteDividaComponent {
   }
 
   deleteRegistroDivida(){
-    this.apiService.deleteRegistroDivida(this.registro.regDividasID, this.registro.clienteID_FK)
+    this.apiService.deleteVenda(this.registro.vendaID_FK)
     .subscribe({
       next: (res) => {
         console.log(res);
-        console.log(this.registro.regDividasID, this.registro.clienteID_FK);
         this.closeDeleteModal();
         this.reloadComponent();
       },

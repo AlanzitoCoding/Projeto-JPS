@@ -9,7 +9,13 @@
         <div class="filters-div">
             <label for="search" class="search-wrapper">
                 <i class="ph ph-magnifying-glass"></i>
-                <input type="search" name="search" id="search" placeholder="Pesquisar...">
+                <input 
+                type="search" 
+                name="search" 
+                id="search" 
+                placeholder="Pesquisar..."
+                [(ngModel)]="searchText"
+                (input)="onSearchChange()">
             </label>
 
             <i class="ph ph-funnel filter-icon"></i>

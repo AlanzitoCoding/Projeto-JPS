@@ -20,5 +20,5 @@ export enum TipoCompra{
     debito = 'Débito',
     dinheiro = 'Dinheiro',
     pix = 'PIX',
-    fiado = 'Fiado',
+    fiado = 'Dívida',
 }

@@ -12,3 +12,68 @@
     display: flex;
     justify-content: flex-end;
 }
+
+/* Container visual padrão Material */
+select {
+    width: 20rem;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+
+    color: #333;
+    background: transparent;
+
+    border: none;
+    border-bottom: 2px solid #c7c7c7;
+    border-radius: 8px;
+
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+
+    /* seta customizada */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 256 256'><path fill='%2373AF6F' d='M128 172a12 12 0 0 1-8.49-3.51l-72-72a12 12 0 1 1 17-17L128 143l63.51-63.52a12 12 0 0 1 17 17l-72 72A12 12 0 0 1 128 172Z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 0.5rem) center;
+    background-size: 1.1rem;
+}
+
+/* Hover */
+select:hover {
+    border-color: #73AF6F;
+}
+
+/* Foco (estilo material) */
+select:focus {
+    border-color: #73AF6F;
+    box-shadow: 0 3px 8px rgba(115, 175, 111, 0.35);
+}
+
+/* Estiliza o "placeholder" */
+select option[value=""][disabled] {
+    color: #888;
+    font-style: italic;
+}
+
+/* Estilização dos options */
+select option {
+    background: #ffffff;
+    color: #333;
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* A cor da opção selecionada quando o menu abre */
+select option:checked {
+    background: #e6f5e5;     /* verde clarinho */
+    color: #2a5d29;
+    font-weight: 600;
+}
+
+/* Para sistemas que suportam highlight */
+select option:hover {
+    background: #f2fff1;     /* hover verde pastel */
+}
