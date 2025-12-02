@@ -50,7 +50,7 @@ export class ModalEditDividaComponent {
 
   editRegistroDivida(form : NgForm){
     this.apiService
-    .updateVenda(this.registro.vendaID_FK, form.value.dataDivida, form.value.valorDivida, this.clienteNome, TipoCompra.fiado)
+    .updateVenda(this.registro.vendaID_FK, form.value.dataDivida, form.value.valorDivida, this.clienteNome, TipoCompra.divida)
     .subscribe({
       next: (res) => {
         console.log(res);

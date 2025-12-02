@@ -16,6 +16,10 @@ export class ClientesService {
     return this.http.get<ClientesAPI>(`${this.apiURL}/showClientes`).pipe(map((response) => response.clientes));
   }
 
+  public showMaioresDividas() : Observable<Clientes>{
+    return this.http.get<ClientesAPI>(`${this.apiURL}/showMaioresDividas`).pipe(map((response) => response.clientes));
+  }
+
   public showClienteInfo(id : number) : Observable<Cliente>{
     return this.http.get<ClienteAPI>(`${this.apiURL}/showClienteInfo/${id}`)
     .pipe(map((response) => response.clienteInfo[0]));

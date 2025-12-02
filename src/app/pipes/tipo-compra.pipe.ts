@@ -14,7 +14,7 @@ export class TipoCompraPipe implements PipeTransform {
       credito: "Crédito",
       debito: "Débito",
       dinheiro: "Dinheiro",
-      fiado: "Dívida",
+      divida: "Dívida",
       pix: "PIX",
     };
 
