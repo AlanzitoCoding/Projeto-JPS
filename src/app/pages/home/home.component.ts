@@ -6,16 +6,18 @@ import { HeaderComponent } from "../../shared/header/header.component";
 import { ClientesService } from '../../services/clientes.service';
 import { Clientes } from '../../models/clientes.model';
 import { tap } from 'rxjs';
+import { HomeCarouselComponent } from "./home-carousel/home-carousel.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CardComponent, HeaderComponent],
+  imports: [CardComponent, HeaderComponent, HomeCarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
   apiService = inject(ClientesService);
   maioresDividas! : Clientes;
+  carouselDisplay : string = "none";
 
   public ngOnInit() : void{
     this.loadMaioresDividas();
@@ -28,10 +30,20 @@ export class HomeComponent {
       next: (res) => {
         console.log(res);
         console.log(this.maioresDividas);
+        this.showCarousel();
       },
       error: (err) => {
         console.error(err);
       }
     })
+  }
+
+  showCarousel(){
+    if(!this.maioresDividas){
+      this.carouselDisplay = "none";
+    }
+    else{
+      this.carouselDisplay = "flex";
+    }
   }
 }

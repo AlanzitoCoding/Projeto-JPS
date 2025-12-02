@@ -1,0 +1,87 @@
+/* Louvado seja o Senhor */
+
+.carousel-container {
+    position: relative;
+    width: 40vw;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-table-row-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.carousel-slide {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: transform .6s ease;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+    margin-bottom: .5rem;
+    font-size: 1.6rem;
+}
+
+.card p {
+    margin: .3rem 0;
+    font-size: 1.1rem;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: rgba(0,0,0,.15);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    backdrop-filter: blur(3px);
+    transition: .2s;
+}
+
+.arrow:hover {
+    background: rgba(0,0,0,.25);    
+}
+
+.left { left: 10px; }
+.right { right: 10px; }
+
+.indicators {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #bbb;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.dot.active {
+    background: #333;
+    transform: scale(1.2);
+}

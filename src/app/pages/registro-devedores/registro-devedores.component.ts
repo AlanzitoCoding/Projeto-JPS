@@ -1,6 +1,6 @@
 // Louvado seja o Senhor
 
-import { Component, inject, Input, signal } from '@angular/core';
+import { Component, ElementRef, inject, Input, signal, viewChild } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { ButtonComponent } from "../../shared/button/button.component";
 import { TableComponent } from "../../shared/table/table.component";
@@ -39,6 +39,8 @@ export class RegistroDevedoresComponent {
   selectedPagamentoDivida! : PagamentoDivida;
 
   @Input() clienteID! : number;
+
+  infoSectionDisplay : string = "none";
 
   public ngOnInit() : void{
     this.loadClienteInfo(this.clienteID);
@@ -90,6 +92,7 @@ export class RegistroDevedoresComponent {
   chooseCliente = (id : number) => {
     this.clienteID = id;
     this.loadClienteInfo(id);
+    this.showInfoSection();
   }
 
   loadClientes(){
@@ -105,6 +108,14 @@ export class RegistroDevedoresComponent {
     })
   }
 
+  showInfoSection(){
+    if(!this.clienteID){
+      this.infoSectionDisplay = "none";
+    }
+    else{
+      this.infoSectionDisplay = "block";
+    }
+  }
 
   openPagamentoModal = () => {
     this.isPagamentoModalOpen.set(true);

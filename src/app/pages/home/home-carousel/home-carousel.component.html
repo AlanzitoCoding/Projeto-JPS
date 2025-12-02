@@ -1,0 +1,18 @@
+<!-- Louvado seja o Senhor -->
+
+<div class="carousel-container">
+    <button class="arrow left" (click)="prev()">
+      <i class="ph ph-caret-left"></i>
+    </button>
+
+    <button class="arrow right" (click)="next()">
+      <i class="ph ph-caret-right"></i>
+    </button>
+
+    <div class="carousel-slide" *ngIf="clientes.length">
+      <div class="card">
+        <h2>{{ clientes[currentIndex].clienteNome }}</h2>
+        <p>Dívida: <strong>R$ {{ clientes[currentIndex].clienteDivida | number:'1.2-2' }}</strong></p>
+      </div>
+    </div>
+</div>

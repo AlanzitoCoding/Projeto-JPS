@@ -28,6 +28,11 @@
                 </div>
             </app-card>
         </section>
+
+        <section [style.display]="carouselDisplay" class="home-carousel-section">
+            <h1>Clientes com as maiores dívidas</h1>
+            <app-home-carousel [clientes]="maioresDividas" />
+        </section>
     </main>
 </body>
 </html>
