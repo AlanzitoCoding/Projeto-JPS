@@ -13,25 +13,56 @@
     </header>
     
     <main>
-        <section class="card-section">
-            <app-card href="/vendas" class="card">
-                <i class="ph ph-coin-vertical" card-img></i>
-                <div card-title class="card-title">
-                    <p>Relatório de Vendas</p>
-                </div>
-            </app-card>
-            
-            <app-card href="/estoque" class="card">
-                <i class="ph ph-package" card-img></i>
-                <div card-title class="card-title">
-                <p>Estoque</p>
-                </div>
-            </app-card>
+        <section class="manual-section">
+            <div>
+                <h1>Manual do Sistema:</h1>
+                <br>
+                <ul>
+                    <li>
+                        <h3>Vendas: </h3>
+                        <p>nessa página, você pode adicionar, editar e excluir registros de venda, visualizar os registros, separados em compras e dívidas, e visualizar as dívidas individuais do cliente.</p> 
+                    </li>
+                    <li>
+                        <h3>Estoque: </h3>
+                        <p>nessa página, você pode adicionar, editar e excluir produtos, além de poder ver todos os produtos adicionados ao sistema.</p> 
+                    </li>
+                    <li>
+                        <h3>Registro de Devedores: </h3>
+                        <p>nessa página, você pode ver os registros específicos do cliente (valor total da dívida, registros de dívidas e pagamentos), além de poder editá-los e excluí-los.</p> 
+                    </li>
+                </ul>
+            </div>
+
+            <section [style.display]="carouselDisplay" class="home-carousel-section">
+                <h1>Clientes com as maiores dívidas</h1>
+                <app-home-carousel [clientes]="maioresDividas" />
+            </section>
         </section>
 
-        <section [style.display]="carouselDisplay" class="home-carousel-section">
-            <h1>Clientes com as maiores dívidas</h1>
-            <app-home-carousel [clientes]="maioresDividas" />
+        <section class="card-container">
+            <section class="card-section">
+                <app-card href="/vendas" class="card">
+                    <i class="ph ph-coin-vertical" card-img></i>
+                    <div card-title class="card-title">
+                        <p>Relatório de Vendas</p>
+                    </div>
+                </app-card>
+                
+                <app-card href="/estoque" class="card">
+                    <i class="ph ph-package" card-img></i>
+                    <div card-title class="card-title">
+                        <p>Estoque</p>
+                    </div>
+                </app-card>
+
+                <app-card href="/registroDevedores" class="card">
+                    <i class="ph ph-clipboard-text" card-img></i>
+                    <div card-title class="card-title">
+                        <p>Registro de Devedores</p>
+                    </div>
+                </app-card>
+            </section>
+            
         </section>
     </main>
 </body>

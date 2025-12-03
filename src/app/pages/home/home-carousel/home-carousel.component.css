@@ -2,14 +2,13 @@
 
 .carousel-container {
     position: relative;
-    width: 40vw;
+    width: 30vw;
     height: 260px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--secondary-table-row-color);
     border-radius: 16px;
-    padding: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
