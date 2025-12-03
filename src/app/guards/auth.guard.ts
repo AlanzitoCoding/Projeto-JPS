@@ -1,6 +1,6 @@
 // Louvado seja o Senhor
 
-import { ActivatedRouteSnapshot, CanActivateFn, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { inject } from '@angular/core';
 
@@ -9,7 +9,13 @@ export const authGuard: CanActivateFn = (
   state: RouterStateSnapshot
   ) => {
   const authService = inject(AuthService);
+  const router = inject(Router);
 
-  
-  return true;
+  if(authService.isLogged()){
+    return true;
+  }
+  else{
+    router.navigate(['/login']);
+    return false;
+  }
 };
