@@ -39,7 +39,7 @@ export class HomeComponent {
   }
 
   showCarousel(){
-    if(!this.maioresDividas){
+    if(!this.maioresDividas || this.maioresDividas.length === 0){
       this.carouselDisplay = "none";
     }
     else{
