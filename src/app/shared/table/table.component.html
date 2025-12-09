@@ -7,7 +7,7 @@
         </app-button>
 
         <div class="filters-div">
-            <label for="search" class="search-wrapper">
+            <label for="search" class="search-wrapper" [style.display]="searchDisplay">
                 <i class="ph ph-magnifying-glass"></i>
                 <input 
                 type="search" 
@@ -17,8 +17,6 @@
                 [(ngModel)]="searchText"
                 (input)="onSearchChange()">
             </label>
-
-            <i class="ph ph-funnel filter-icon"></i>
         </div>
     </div>
 

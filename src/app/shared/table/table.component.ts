@@ -14,6 +14,7 @@ export class TableComponent {
  @Input() width : string = "";
  @Input() overflowHeight : string = "";
  @Input() btnDisplay : string = "";
+ @Input() searchDisplay : string = "none";
  @Input() clickFunc! : () => void;
 
  @Input() searchFn! : (search : string) => void;

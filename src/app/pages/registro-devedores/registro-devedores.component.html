@@ -24,39 +24,45 @@
             </div>
 
             <div class="info-tables-div">
-                <app-table width="40vw" btnDisplay="none">
-                    <tr table-header>
-                        <th>Valor da Dívida</th>
-                        <th>Data da Dívida</th>
-                        <th>Ações</th>
-                    </tr>
-
-                    <tr table-data *ngFor="let regDivida of registroDividas">
-                        <td>{{ regDivida.valorDivida | currency: "BRL" }}</td>
-                        <td>{{ regDivida.dataDivida | date: "dd/MM/yyyy" }}</td>
-                        <td class="table-actions-div">
-                            <i class="ph ph-pencil-simple" (click)="openEditDividaModal(regDivida.regDividasID)"></i>
-                            <i class="ph ph-trash-simple" (click)="openDeleteDividaModal(regDivida.regDividasID)"></i>
-                        </td>
-                    </tr>
-                </app-table>
+                <div>
+                    <h2 class="table-title">Tabela de Dívidas do Cliente</h2>
+                    <app-table width="40vw" btnDisplay="none">
+                        <tr table-header>
+                            <th>Valor da Dívida</th>
+                            <th>Data da Dívida</th>
+                            <th>Ações</th>
+                        </tr>
+                        
+                        <tr table-data *ngFor="let regDivida of registroDividas">
+                            <td>{{ regDivida.valorDivida | currency: "BRL" }}</td>
+                            <td>{{ regDivida.dataDivida | date: "dd/MM/yyyy" }}</td>
+                            <td class="table-actions-div">
+                                <i class="ph ph-pencil-simple" (click)="openEditDividaModal(regDivida.regDividasID)"></i>
+                                <i class="ph ph-trash-simple" (click)="openDeleteDividaModal(regDivida.regDividasID)"></i>
+                            </td>
+                        </tr>
+                    </app-table>
+                </div>
                 
-                <app-table width="40vw" btnDisplay="none">
-                     <tr table-header>
-                        <th>Valor do Pagamento</th>
-                        <th>Data do Pagamento</th>
-                        <th>Ações</th>
-                    </tr>
+                <div>
+                    <h2 class="table-title">Tabela de Pagamentos do Cliente</h2>
+                    <app-table width="40vw" btnDisplay="none">
+                        <tr table-header>
+                            <th>Valor do Pagamento</th>
+                            <th>Data do Pagamento</th>
+                            <th>Ações</th>
+                        </tr>
 
-                    <tr table-data *ngFor="let pagDivida of pagamentoDividas">
-                        <td>{{ pagDivida.valorPagamento | currency: "BRL" }}</td>
-                        <td>{{ pagDivida.dataPagamento | date: "dd/MM/yyyy" }}</td>
-                        <td class="table-actions-div">
-                            <i class="ph ph-pencil-simple" (click)="openEditPagamentoModal(pagDivida.pagDividasID)"></i>
-                            <i class="ph ph-trash-simple" (click)="openDeletePagamentoModal(pagDivida.pagDividasID)"></i>
-                        </td>
-                    </tr>
-                </app-table>
+                        <tr table-data *ngFor="let pagDivida of pagamentoDividas">
+                            <td>{{ pagDivida.valorPagamento | currency: "BRL" }}</td>
+                            <td>{{ pagDivida.dataPagamento | date: "dd/MM/yyyy" }}</td>
+                            <td class="table-actions-div">
+                                <i class="ph ph-pencil-simple" (click)="openEditPagamentoModal(pagDivida.pagDividasID)"></i>
+                                <i class="ph ph-trash-simple" (click)="openDeletePagamentoModal(pagDivida.pagDividasID)"></i>
+                            </td>
+                        </tr>
+                    </app-table>
+                </div>
             </div>
         </section>
 

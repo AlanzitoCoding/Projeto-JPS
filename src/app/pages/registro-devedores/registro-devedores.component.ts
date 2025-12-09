@@ -38,6 +38,7 @@ export class RegistroDevedoresComponent {
   selectedRegistroDivida! : RegistroDivida;
   selectedPagamentoDivida! : PagamentoDivida;
 
+  clienteIDStorage = sessionStorage.getItem("clienteID");
   @Input() clienteID! : number;
 
   infoSectionDisplay : string = "none";
@@ -45,6 +46,7 @@ export class RegistroDevedoresComponent {
   public ngOnInit() : void{
     this.loadClienteInfo(this.clienteID);
     this.loadClientes();
+    this.loadClienteFromSessionStorage();
   }
 
   loadClienteInfo(id : number){
@@ -106,6 +108,13 @@ export class RegistroDevedoresComponent {
         console.error(err);
       }
     })
+  }
+
+  loadClienteFromSessionStorage(){
+    if(this.clienteIDStorage){
+      this.clienteID = parseInt(this.clienteIDStorage);
+      this.chooseCliente(this.clienteID);
+    }
   }
 
   showInfoSection(){

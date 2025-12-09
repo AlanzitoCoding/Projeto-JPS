@@ -11,6 +11,11 @@ body{
     justify-content: space-evenly;
 }
 
+.table-title{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .table-actions-div{
     font-size: 1.125rem;
 }

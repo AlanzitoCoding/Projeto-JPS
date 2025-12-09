@@ -12,6 +12,11 @@ main{
     align-items: center;
 }
 
+.prod-table-div h2{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .table-actions-div{
     font-size: 1.125rem;
 }
